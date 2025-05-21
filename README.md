@@ -29,7 +29,26 @@ ASLens uses the **[How2Sign ](https://how2sign.github.io/)** dataset, which cons
 
 ### Step 2: Extracting Hand - Face Keypoints using MediaPipe
 
-To extract meaningful features for model training, we use **MediaPipe** to extract hand - face keypoints from the video frames. **[MediaPipe ](https://ai.google.dev/edge/mediapipe/solutions/guide)** provides pre-built solutions for detecting hand - face keypoints, which interpret sign language gestures. Due to limited computational resources, a video frame rate of 15fps was used in this project.
+To prepare the data for model training, we use **[MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide)** to extract key landmarks from the **hands** and **face** in each video frame. MediaPipe provides pre-trained models that detect these keypoints, which are crucial for understanding and interpreting sign language gestures.
+
+Since we worked with limited computational resources, we processed the videos at a reduced frame rate of **15 frames per second (fps)** to make the training more efficient.
+
+After detecting the landmarks using our custom `LandExtractor` tool, we selected only a subset of the most relevant keypoints from the hands and face—those that carry the most meaningful information for sign interpretation. These are:
+
+-   **Hand landmarks**: (sali dodaj)
+    
+-   **Face landmarks**: (sali dodaj)
+   (image- sali dodaj)
+
+The final extracted features from each frame are stored as a **tensor**.These tensors are then used as input sequences for the model.
+
+### Step 3: Encoder
+
+### Step 4: Decoder
+
+
+
+
 
 
 
