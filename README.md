@@ -120,7 +120,7 @@ graph TD
 subgraph Inputs
 	A["Landmark sequences<br>(frames, 98, 3)"]
 	T["<SOS>"]
-	A --- T
+	A ~~~ T
 end
 
 A --> B["Encoder"]
