@@ -119,7 +119,7 @@ To produce the text output, we pass the landmark sequences through the encoder, 
 graph TD
 subgraph Inputs
 	A["Landmark sequences<br>(frames, 98, 3)"]
-	T["<SOS> sad"]
+	T["#lt;SOS#gt;"]
 	A ~~~ T
 end
 
