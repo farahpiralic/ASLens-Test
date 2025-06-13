@@ -127,7 +127,8 @@ A --> B["Encoder"]
 
 B -.-> |"Hidden State<br>(h₀, c₀)"|C["CharRNN Decoder"]
 T--> P["Tokenizer"]
-P -.-> C
+P -.-> |"Character-Level<br> Encoding"|C
+P -.-> |"Word2Vec<br> Embeddings<br>"|C
 C --> F["Next Character<br>p(yₜ|yₜ₋₁, h) = 'e'"] --> T
 style T fill:#e9b116,stroke:none,color:black
 
