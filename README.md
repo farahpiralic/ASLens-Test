@@ -152,7 +152,7 @@ E --> G["LSTM<br>Hidden Size=384<br>Layers=3"]
 G --> H["Output<br>"]
 ```
 ### Encoder-GPT2 Merge
-GPT-2 is a large pretrained model trained on a vast corpus of text, and it has already learned strong text dependencies. To integrate our encoder with GPT-2, we use **cross-attention**: we pass the encoder’s hidden state as the context to GPT-2’s cross-attention layers. This allows GPT-2 to condition its text generation on the encoded sign language features, leveraging both the pretrained language knowledge and the input landmark representations.
+GPT-2 is a large pretrained model trained on a vast corpus of text, and it has already learned strong text dependencies. To integrate our encoder with GPT-2, we use **cross-attention**: we pass the encoder’s hidden state as the context to GPT-2’s cross-attention layers. This lets GPT-2 use encoded sign language features, combining  its pretrained language knowledge with the input landmark representations.
 ```mermaid
 
 graph TD
@@ -168,7 +168,7 @@ B -.-> |"Hidden State<br>(h₀, c₀)"|C["GPT-2 Decoder"]
 T--> P["GPT-2 Tokenizer"]
 P -.-> C
 
-C --> F["Next Character<br>p(yₜ|yₜ₋₁, h) = 'e'"] -.-> T
+C --> F["Next Token<br>p(yₜ|yₜ₋₁, h) = 'e'"] -.-> T
 style T fill:#e9b116,stroke:none,color:black
 
 
