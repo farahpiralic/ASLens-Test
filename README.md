@@ -70,6 +70,9 @@ graph TD
     A[Input] --> B[LSTM<br>384 units]
     B --> C[FC Layer<br>1024 units]
     C --> D[Output]
+    invisible1[ ]:::invisible
+    invisible2[ ]:::invisible
+    classDef invisible fill:none,stroke:none,width:0,height:0
 ```
 </td> </tr> </table> 
 
