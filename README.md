@@ -151,5 +151,24 @@ D --> E["Conv1D<br>32→64 channels<br>kernel=2, pad=1"]
 E --> G["LSTM<br>Hidden Size=384<br>Layers=3"]
 G --> H["Output<br>"]
 ```
+### Encoder-GPT2 Merge
+GPT-2 is a large pretrained model trained on a vast corpus of text, and it has already learned strong text dependencies. To integrate our encoder with GPT-2, we use **cross-attention**: we pass the encoder’s hidden state as the context to GPT-2’s cross-attention layers. This allows GPT-2 to condition its text generation on the encoded sign language features, leveraging both the pretrained language knowledge and the input landmark representations.
+```mermaid
 
+graph TD
+subgraph Inputs
+	A["Landmark sequences<br>(frames, 98, 3)"]
+	T["#lt;SOS#gt;How ar"]
+	A ~~~ T
+end
+
+A --> B["Encoder"]
+
+B -.-> |"Hidden State<br>(h₀, c₀)"|C["GPT-2 Decoder"]
+T--> P["GPT-2 Tokenizer"]
+C --> F["Next Character<br>p(yₜ|yₜ₋₁, h) = 'e'"] -.-> T
+style T fill:#e9b116,stroke:none,color:black
+
+
+```
 ---
