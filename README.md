@@ -61,15 +61,7 @@ Firstly, we train the CharRNN on a large corpus of Wikipedia text to learn chara
 | **Hidden Size**        | 384           |
 | **Number of Layers**   | 3             |
 
-
-
-
-<br><br><br>
-<br><br><br>
-
-s
 </td>
-<br><br><br>
 
 <td>
 
