@@ -82,7 +82,7 @@ The encoder is the main component of our architecture, responsible for mapping l
 
 
 ## ASLensEncoder Architecture Overview
-<div align="center" height="500px">
+<div align="center" width="500px">
 
 | Component               | Configuration                          |
 |-------------------------|----------------------------------------|
