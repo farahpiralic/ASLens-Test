@@ -84,31 +84,18 @@ The encoder is the main component of our architecture, responsible for mapping l
 
 # ASLensEncoder Architecture Overview
 
-| Component               | Configuration                          | Purpose                                                                 |
-|-------------------------|----------------------------------------|-------------------------------------------------------------------------|
-| **Input Shape**         | `(batch, time, 98, 3)`                | Temporal sequence of 98 body landmarks (x,y,z coordinates)              |
-| **Conv1D Block**        |                                        | Feature extraction from spatial coordinates                             |
-| → Layer 1               | `Conv1d(3→16, kernel=3, padding=1)`   | Initial feature mapping (preserves temporal length)                     |
-| → Layer 2               | `Conv1d(16→32, kernel=2, padding=1)`  | Intermediate feature extraction                                        |
-| → Layer 3               | `Conv1d(32→64, kernel=2, padding=1)`  | Higher-level feature extraction                                        |
-| **LSTM Block**          |                                        | Temporal sequence modeling                                             |
-| → Hidden Size           | `384`                                  | Representation capacity of LSTM cells                                  |
-| → Layers                | `3`                                    | Depth of recurrent processing                                          |
-| → Dropout               | `config.dropout_rate`                  | Regularization                                                         |
-| **Output**              | `(out, hidden)`                        | Processed sequence and final hidden state                              |
+| Component               | Configuration                          |
+|-------------------------|----------------------------------------|
+| **Input Shape**         | `(batch, time, 98, 3)`                | 
+| **Conv1D Block**        |                                        |
+| → Layer 1               | `Conv1d(3→16, kernel=3, padding=1)`   | 
+| → Layer 2               | `Conv1d(16→32, kernel=2, padding=1)`  | 
+| → Layer 3               | `Conv1d(32→64, kernel=2, padding=1)`  | 
+| **LSTM Block**          |                                        |
+| → Hidden Size           | `384`                                  |
+| → Layers                | `3`                                    |
+| **Output**              |                                         |
 
-## Key Data Flow
-1. **Input Reshape**:  
-   `(batch, time, 98, 3)` → `(batch*time, 98, 3)` (flattened for parallel processing)  
-   → Permuted to `(batch*time, 3, 98)`
-
-2. **Conv1D Processing**:  3 channels → [Conv1d] → 16 → [ReLU] → 32 → [ReLU] → 64 channels
-
-
-3. **LSTM Input**:  
-Flattened to `(batch, time, 6400)` where `6400 = 64 channels * 100 (reduced width)`
-
-4. **Temporal Processing**: LSTM with `hidden_size=384` processes the sequence
 </td>
 
 <td>
