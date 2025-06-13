@@ -179,12 +179,12 @@ To evaluate model propertly we decide to use following evaluation techniques
 | Evaluation Technique | Explanation         |
 |------------------------|---------------|                                                              
 | **BLEU**         | BLEU (Bilingual Evaluation Understudy) is a metric used to evaluate how closely a machine-generated sentence matches a reference translation. In ASLense, it helps us assess how accurately our AI translates ASL into written English by comparing word sequences. It’s useful for checking the overall quality and fluency of the translation.          |
-| **METEOR**        | METEOR evaluates translations based on word matches, synonyms, and word order, making it more flexible than BLEU. For ASLense, this is helpful because ASL doesn’t always follow standard English grammar, so METEOR better captures translations that are semantically correct. It ensures the meaning is preserved, even if the wording varies.
-           |
-| **ROUGE-1**   | ROUGE-1 measures the overlap of individual words between the model output and the reference. In our project, it shows whether the essential words from the correct translation are being included. This helps confirm that the model captures the key vocabulary from ASL.
-             |
-| **ROUGE-2**   | ROUGE-2 looks at overlapping word pairs, giving insight into how well the model preserves short phrases. This matters in ASLense since phrase structure affects clarity and readability. It helps us evaluate whether the output sounds natural and flows correctly.
-             |
-| **ROUGE-L**   | ROUGE-L focuses on the longest matching sequence of words, reflecting how well the sentence structure is maintained. For ASLense, this helps determine if the overall order of translated signs makes sense in English. It’s valuable for checking the fluency and coherence of the output.
-             |
+| **METEOR**        | METEOR evaluates translations based on word matches, synonyms, and word order, making it more flexible than BLEU. For ASLense, this is helpful because ASL doesn’t always follow standard English grammar, so METEOR better captures translations that are semantically correct. It ensures the meaning is preserved, even if the wording varies.|
+           
+| **ROUGE-1**   | ROUGE-1 measures the overlap of individual words between the model output and the reference. In our project, it shows whether the essential words from the correct translation are being included. This helps confirm that the model captures the key vocabulary from ASL.|
+             
+| **ROUGE-2**   | ROUGE-2 looks at overlapping word pairs, giving insight into how well the model preserves short phrases. This matters in ASLense since phrase structure affects clarity and readability. It helps us evaluate whether the output sounds natural and flows correctly.|
+             
+| **ROUGE-L**   | ROUGE-L focuses on the longest matching sequence of words, reflecting how well the sentence structure is maintained. For ASLense, this helps determine if the overall order of translated signs makes sense in English. It’s valuable for checking the fluency and coherence of the output.|
+             
 ## Experiment 1
