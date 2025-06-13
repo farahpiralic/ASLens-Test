@@ -166,6 +166,8 @@ A --> B["Encoder"]
 
 B -.-> |"Hidden State<br>(h₀, c₀)"|C["GPT-2 Decoder"]
 T--> P["GPT-2 Tokenizer"]
+P -.-> C
+
 C --> F["Next Character<br>p(yₜ|yₜ₋₁, h) = 'e'"] -.-> T
 style T fill:#e9b116,stroke:none,color:black
 
