@@ -60,6 +60,12 @@ Firstly, we train the CharRNN on a large corpus of Wikipedia text to learn chara
 | **Model Type**         | LSTM          |
 | **Hidden Size**        | 384           |
 | **Number of Layers**   | 3             |
+
+
+
+
+
+
 </td>
 <br><br><br>
 
@@ -70,9 +76,6 @@ graph TD
     A[Input] --> B[LSTM<br>384 units]
     B --> C[FC Layer<br>1024 units]
     C --> D[Output]
-    invisible1[ ]:::invisible
-    invisible2[ ]:::invisible
-    classDef invisible fill:none,stroke:none,width:0,height:0
 ```
 </td> </tr> </table> 
 
