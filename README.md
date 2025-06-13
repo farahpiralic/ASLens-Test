@@ -76,12 +76,12 @@ graph TD
 </div>
 
 ### Step 2: Encoder-Decoder network
-#### Encoder architecture
+### Encoder architecture
 
 The encoder is the main component of our architecture, responsible for mapping landmark features into the model’s latent space. To achieve this, we use a combination of convolutional layers and recurrent layers. The data first flows through a series of 1D convolutional layers, which capture local temporal patterns in the input sequence. The output of the convolutional layers is then passed through an LSTM, which models longer-range dependencies and computes the final feature representation.
 
 
-## ASLensEncoder Architecture Overview
+### Encoder Architecture Overview
 <div align="center">
 
 | Component               | Configuration                          |
@@ -103,8 +103,32 @@ The encoder is the main component of our architecture, responsible for mapping l
 graph LR
 A["Input<br>(frames, 98, 3)"]
 A --> C["Conv1D<br>3→16 channels<br>kernel=3, pad=1"]
-C --> D["Layer 2<br>16→32 channels<br>kernel=2, pad=1"]
-D --> E["Layer 3<br>32→64 channels<br>kernel=2, pad=1"]
+C --> D["Conv1D<br>16→32 channels<br>kernel=2, pad=1"]
+D --> E["Conv1D<br>32→64 channels<br>kernel=2, pad=1"]
 E --> G["LSTM<br>Hidden Size=384<br>Layers=3"]
 G --> H["Output<br>"]
+```
+
+---
+### Encoder-Decoder merge
+To produce the text output, we pass the landmark sequences through the encoder, which generates a hidden state representation. This hidden state is then passed as the initial hidden state to the CharRNN decoder, which generates the output sequence token by token.
+```mermaid
+
+  
+
+graph TD
+subgraph Inputs
+	A["Landmark sequences<br>(frames, 98, 3)"]
+	T["<SOS>"]
+	A --- T
+end
+
+A --> B["Encoder"]
+
+B -.-x |"Hidden State<br>(h₀, c₀)"|C["CharRNN Decoder"]
+T -.-> C
+C --> F["Token prediction:"] -->T
+style T fill:#e9b116,stroke:none
+
+
 ```
