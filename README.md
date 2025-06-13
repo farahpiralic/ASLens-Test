@@ -110,7 +110,7 @@ G --> H["Output<br>"]
 ```
 
 ---
-### Encoder-Decoder merge
+### Encoder-Decoder Merge
 To produce the text output, we pass the landmark sequences through the encoder, which generates a hidden state representation. This hidden state is then passed as the initial hidden state to the CharRNN decoder, which generates the output sequence token by token.
 ```mermaid
 
@@ -132,3 +132,22 @@ style T fill:#e9b116,stroke:none,color:black
 
 
 ```
+---
+## Experiment 2: Encoder-Decoder Architecture with CharRNN as Decoder
+### Encoder architecture
+
+The encoder architecture remains the same as in Experiment 1. It combines 1D convolutional layers for capturing local temporal patterns with LSTM layers for modeling longer-range dependencies and generating the final feature representation.
+
+
+```mermaid
+
+graph LR
+A["Input<br>(frames, 98, 3)"]
+A --> C["Conv1D<br>3→16 channels<br>kernel=3, pad=1"]
+C --> D["Conv1D<br>16→32 channels<br>kernel=2, pad=1"]
+D --> E["Conv1D<br>32→64 channels<br>kernel=2, pad=1"]
+E --> G["LSTM<br>Hidden Size=384<br>Layers=3"]
+G --> H["Output<br>"]
+```
+
+---
