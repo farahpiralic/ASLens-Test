@@ -70,4 +70,4 @@ graph TD
     B --> C[LSTM Layer 2<br>128 units]
     C --> D[LSTM Layer 3<br>128 units]
     D --> E[Output]
-### Step 4: Decoder
+```
