@@ -71,3 +71,29 @@ graph TD
     C --> D[LSTM Layer 3<br>128 units]
     D --> E[Output]
 ```
+</div> </div>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; margin: 20px 0; border: 1px solid #eee; padding: 20px; border-radius: 8px; background: #f9f9f9;">
+<div style="flex: 1; min-width: 45%;">
+
+#### **Architecture Specs**  
+| Component          | Value       |
+|--------------------|-------------|
+| **Model Type**     | LSTM        |
+| **Hidden Size**    | `128`       |
+| **Num Layers**     | `3`         |
+| **Activation**     | Tanh        |
+| **Dropout**        | `0.2`       |
+
+</div>
+<div style="flex: 1; min-width: 45%;">
+
+#### **Layer Flow**  
+```mermaid
+graph LR
+    X[Input] --> L1[LSTM 1<br>128u]
+    L1 --> L2[LSTM 2<br>128u]
+    L2 --> L3[LSTM 3<br>128u]
+    L3 --> Y[Output]
+    style X fill:#f0f0f0,stroke:#333
+    style Y fill:#f0f0f0,stroke:#333
+    style L1,L2,L3 fill:#e3f2fd,stroke:#2196f3
