@@ -80,7 +80,7 @@ The encoder is the main component of our architecture, responsible for mapping l
 
 
 ## ASLensEncoder Architecture Overview
-
+<p align="center">
 | Component               | Configuration                          |
 |-------------------------|----------------------------------------|
 | **Input Shape**         | `(batch, time, 98, 3)`                | 
@@ -93,11 +93,6 @@ The encoder is the main component of our architecture, responsible for mapping l
 | → Layers                | `3`                                    |
 | **Output**              |                                         |
 
+<p>
 
 
-```mermaid
-graph TD
-    A[Input] --> B[LSTM<br>384 units]
-    B --> C[FC Layer<br>1024 units]
-    C --> D[Output]
-```
