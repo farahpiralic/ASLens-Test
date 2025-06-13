@@ -80,6 +80,8 @@ The encoder is the main component of our architecture, responsible for mapping l
 
 
 ## ASLensEncoder Architecture Overview
+<div align="center">
+
 | Component               | Configuration                          |
 |-------------------------|----------------------------------------|
 | **Input Shape**         | `(batch, time, 98, 3)`                | 
@@ -92,5 +94,5 @@ The encoder is the main component of our architecture, responsible for mapping l
 | → Layers                | `3`                                    |
 | **Output**              |                                         |
 
-
+</div>
 
