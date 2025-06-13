@@ -189,6 +189,7 @@ To properly evaluate the model, we decided to use the following evaluation techn
 We tested each of our models on the test data and find evaluation metrics. We wi
 
 ## Experiment 1: Encoder-Decoder Architecture with CharRNN as Decoder
+<div align ="center">
 | Evaluation Technique | Value         | Expected Range         |
 |------------------------|---------------|---------------|                                                         
 | **BLEU**         |   0| 	20–50 (higher is better)|
@@ -197,3 +198,4 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 | **ROUGE-2**   |0|  0.2–0.4 (higher is better)	   |
 | **ROUGE-L**   |0|0.3–0.5 (higher is better)	|
 | **WER**   |0| 20–50% (lower is better)	  |
+</div>
