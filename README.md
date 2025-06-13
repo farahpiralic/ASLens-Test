@@ -60,8 +60,9 @@ Firstly, we train the CharRNN on a large corpus of Wikipedia text to learn chara
 | **Model Type**         | LSTM          |
 | **Hidden Size**        | 384           |
 | **Number of Layers**   | 3             |
-<br><br><br>
 </td>
+<br><br><br>
+
 <td>
 
 ```mermaid
