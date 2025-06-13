@@ -78,9 +78,6 @@ graph TD
 
 The encoder is the main component of our architecture, responsible for mapping landmark features into the model’s latent space. To achieve this, we use a combination of convolutional layers and recurrent layers. The data first flows through a series of 1D convolutional layers, which capture local temporal patterns in the input sequence. The output of the convolutional layers is then passed through an LSTM, which models longer-range dependencies and computes the final feature representation.
 
-<table>
-<tr>
-<td>
 
 ## ASLensEncoder Architecture Overview
 
@@ -96,8 +93,7 @@ The encoder is the main component of our architecture, responsible for mapping l
 | → Layers                | `3`                                    |
 | **Output**              |                                         |
 
-</td>
-<table>
+
 
 ```mermaid
 graph TD
