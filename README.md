@@ -44,7 +44,6 @@ The final extracted features from each frame are stored as a **tensor**.These te
 
 
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/nl-gif.gif)
-<span style="display: inline-block; width: 1%;"></span>
 
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/l-gif.gif)
 
