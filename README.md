@@ -51,7 +51,7 @@ The final extracted features from each frame are stored as a tensor. The tensors
 
 Firstly, we train the CharRNN on a large corpus of Wikipedia text to learn character-level dependencies in natural language. We use an LSTM-based architecture with character embeddings to model sequential patterns, followed by a fully connected layer to produce the final character label at each time step. To further improve performance, we incorporate pretrained word embeddings (**[Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html)**), allowing the model to benefit not only from character-level context but also from word-level semantics.
 
-<div>
+<div stle="height: 250px;">
 <table style="width:100%">
 <tr>
 <td style="width:60%">
