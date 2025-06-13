@@ -42,12 +42,13 @@ After detecting the landmarks using our custom `LandExtractor` tool, we selected
 
 The final extracted features from each frame are stored as a **tensor**.These tensors are then used as input sequences for the model.
 
+<div style="display: flex; justify-content: space-between; align-items: center;">
 
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/nl-gif.gif)
-<span style="display: inline-block; width: 5%;"></span>
 
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/l-gif.gif)
 
+</div>
 
 ### Step 3: Encoder
 
