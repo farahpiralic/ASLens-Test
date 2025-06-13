@@ -21,13 +21,13 @@ The primary goal of ASLens is to translate sign language gestures into readable 
         
     -   A **CharRNN Decoder** then translates these encoded features into coherent text sentences, character by character.
 
-## Dataset
+# Dataset
 
-### Step 1: Collecting Data
+## Step 1: Collecting Data
 
 ASLens uses the **[How2Sign ](https://how2sign.github.io/)** dataset, which consists of video data of sign langauge gestures (ASL language), with the corresponding text translation.
 
-### Step 2: Extracting Hand - Face Keypoints using MediaPipe
+## Step 2: Extracting Hand - Face Keypoints using MediaPipe
 
 To prepare the data for model training, we use **[MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide)** to extract key landmarks from the **hands** and **face** in each video frame. MediaPipe provides pre-trained models that detect these keypoints, which are crucial for understanding and interpreting sign language gestures.
 
@@ -45,7 +45,7 @@ The final extracted features from each frame are stored as a tensor. The tensors
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/nl-gif.gif)
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/l-gif.gif)
 
-
+# Model Architecture
 ## Experiment 1: Encoder-Decoder Architecture with CharRNN as Decoder
 ### Step 1: Training CharRNN
 
@@ -174,3 +174,17 @@ style T fill:#e9b116,stroke:none,color:black
 
 ```
 ---
+# Evaluation
+To evaluate model propertly we decide to use following evaluation techniques
+| Evaluation Technique | Explanation         |
+|------------------------|---------------|                                                              
+| **BLEU**         | BLEU (Bilingual Evaluation Understudy) is a metric used to evaluate how closely a machine-generated sentence matches a reference translation. In ASLense, it helps us assess how accurately our AI translates ASL into written English by comparing word sequences. It’s useful for checking the overall quality and fluency of the translation.          |
+| **METEOR**        | METEOR evaluates translations based on word matches, synonyms, and word order, making it more flexible than BLEU. For ASLense, this is helpful because ASL doesn’t always follow standard English grammar, so METEOR better captures translations that are semantically correct. It ensures the meaning is preserved, even if the wording varies.
+           |
+| **ROUGE-1**   | ROUGE-1 measures the overlap of individual words between the model output and the reference. In our project, it shows whether the essential words from the correct translation are being included. This helps confirm that the model captures the key vocabulary from ASL.
+             |
+| **ROUGE-2**   | ROUGE-2 looks at overlapping word pairs, giving insight into how well the model preserves short phrases. This matters in ASLense since phrase structure affects clarity and readability. It helps us evaluate whether the output sounds natural and flows correctly.
+             |
+| **ROUGE-L**   | ROUGE-L focuses on the longest matching sequence of words, reflecting how well the sentence structure is maintained. For ASLense, this helps determine if the overall order of translated signs makes sense in English. It’s valuable for checking the fluency and coherence of the output.
+             |
+## Experiment 1
