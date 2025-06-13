@@ -97,7 +97,7 @@ The encoder is the main component of our architecture, responsible for mapping l
 | **Output**              |                                         |
 
 </td>
-
+<table>
 
 ```mermaid
 graph TD
@@ -105,4 +105,3 @@ graph TD
     B --> C[FC Layer<br>1024 units]
     C --> D[Output]
 ```
- </tr> </table> 
