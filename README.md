@@ -47,7 +47,7 @@ The final extracted features from each frame are stored as a tensor. The tensors
 
 
 ## Experiment 1: Encoder-Decoder Architecture with CharRNN as Decoder
-### Training CharRNN
+### Step 1: Training CharRNN
 
 Firstly, we train the CharRNN on a large corpus of Wikipedia text to learn character-level dependencies in natural language. We use an LSTM-based architecture with character embeddings to model sequential patterns, followed by a fully connected layer to produce the final character label at each time step. To further improve performance, we incorporate pretrained word embeddings (**[Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html)**), allowing the model to benefit not only from character-level context but also from word-level semantics.
 
@@ -73,4 +73,50 @@ graph TD
 ```
 </td> </tr> </table> 
 
-# Kada
+### Step 2: Encoder-Decoder network
+#### Encoder architecture
+
+The encoder is the main component of our architecture, responsible for mapping landmark features into the model’s latent space. To achieve this, we use a combination of convolutional layers and recurrent layers. The data first flows through a series of 1D convolutional layers, which capture local temporal patterns in the input sequence. The output of the convolutional layers is then passed through an LSTM, which models longer-range dependencies and computes the final feature representation.
+
+<table>
+<tr>
+<td>
+
+# ASLensEncoder Architecture Overview
+
+| Component               | Configuration                          | Purpose                                                                 |
+|-------------------------|----------------------------------------|-------------------------------------------------------------------------|
+| **Input Shape**         | `(batch, time, 98, 3)`                | Temporal sequence of 98 body landmarks (x,y,z coordinates)              |
+| **Conv1D Block**        |                                        | Feature extraction from spatial coordinates                             |
+| → Layer 1               | `Conv1d(3→16, kernel=3, padding=1)`   | Initial feature mapping (preserves temporal length)                     |
+| → Layer 2               | `Conv1d(16→32, kernel=2, padding=1)`  | Intermediate feature extraction                                        |
+| → Layer 3               | `Conv1d(32→64, kernel=2, padding=1)`  | Higher-level feature extraction                                        |
+| **LSTM Block**          |                                        | Temporal sequence modeling                                             |
+| → Hidden Size           | `384`                                  | Representation capacity of LSTM cells                                  |
+| → Layers                | `3`                                    | Depth of recurrent processing                                          |
+| → Dropout               | `config.dropout_rate`                  | Regularization                                                         |
+| **Output**              | `(out, hidden)`                        | Processed sequence and final hidden state                              |
+
+## Key Data Flow
+1. **Input Reshape**:  
+   `(batch, time, 98, 3)` → `(batch*time, 98, 3)` (flattened for parallel processing)  
+   → Permuted to `(batch*time, 3, 98)`
+
+2. **Conv1D Processing**:  3 channels → [Conv1d] → 16 → [ReLU] → 32 → [ReLU] → 64 channels
+
+
+3. **LSTM Input**:  
+Flattened to `(batch, time, 6400)` where `6400 = 64 channels * 100 (reduced width)`
+
+4. **Temporal Processing**: LSTM with `hidden_size=384` processes the sequence
+</td>
+
+<td>
+
+```mermaid
+graph TD
+    A[Input] --> B[LSTM<br>384 units]
+    B --> C[FC Layer<br>1024 units]
+    C --> D[Output]
+```
+</td> </tr> </table> 
