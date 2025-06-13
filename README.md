@@ -69,7 +69,7 @@ Firstly, we train the CharRNN on a large corpus of Wikipedia text to learn chara
 graph TD
     A[Input] --> B[LSTM<br>384 units]
     B --> C[FC Layer<br>1024 units]
-    D --> E[Output]
+    C --> D[Output]
 ```
 </td> </tr> </table> 
 
