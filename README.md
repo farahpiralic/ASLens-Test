@@ -33,11 +33,11 @@ To prepare the data for model training, we use **[MediaPipe](https://ai.google.d
 
 Since we worked with limited computational resources, we processed the videos at a reduced frame rate of **15 frames per second (fps)** to make the training more efficient.
 
-After detecting the landmarks using our custom `LandExtractor` tool, we selected only a subset of the most relevant keypoints from the hands and face—those that carry the most meaningful information for sign interpretation. These are:
+After detecting the landmarks using our custom `DataExtractor` tool, we selected only a subset of the most relevant keypoints from the hands and face—those that carry the most meaningful information for sign interpretation. These are:
 
--   **Hand landmarks**: (sali dodaj)
+-   **Hand landmarks**: For each hand we extract 21 landmarks. ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/hand.png)
     
--   **Face landmarks**: (sali dodaj)
+-   **Face landmarks**: (sali dodaj)![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/face.png)
    (image- sali dodaj)
 
 The final extracted features from each frame are stored as a **tensor**.These tensors are then used as input sequences for the model.
