@@ -119,13 +119,13 @@ To produce the text output, we pass the landmark sequences through the encoder, 
 graph TD
 subgraph Inputs
 	A["Landmark sequences<br>(frames, 98, 3)"]
-	T["<SOS>"]
+	T["<SOS> sad"]
 	A ~~~ T
 end
 
 A --> B["Encoder"]
 
-B -.-x |"Hidden State<br>(h₀, c₀)"|C["CharRNN Decoder"]
+B -.-> |"Hidden State<br>(h₀, c₀)"|C["CharRNN Decoder"]
 T -.-> C
 C --> F["Token prediction:"] -->T
 style T fill:#e9b116,stroke:none
