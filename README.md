@@ -82,7 +82,7 @@ The encoder is the main component of our architecture, responsible for mapping l
 
 
 ## ASLensEncoder Architecture Overview
-<div align="center" width="500px">
+<div align="center">
 
 | Component               | Configuration                          |
 |-------------------------|----------------------------------------|
@@ -98,3 +98,13 @@ The encoder is the main component of our architecture, responsible for mapping l
 
 </div>
 
+```mermaid
+graph LR
+    A["**Input**<br>(batch, time, 98, 3)"] --> B["**Conv1D Block**"]
+    B --> C["Layer 1<br>3→16 channels<br>kernel=3, pad=1"]
+    C --> D["Layer 2<br>16→32 channels<br>kernel=2, pad=1"]
+    D --> E["Layer 3<br>32→64 channels<br>kernel=2, pad=1"]
+    E --> F["**LSTM Block**"]
+    F --> G["Hidden Size=384<br>Layers=3"]
+    G --> H["**Output**<br>(out, hidden)"]
+```
