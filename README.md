@@ -35,15 +35,12 @@ Since we worked with limited computational resources, we processed the videos at
 
 After detecting the landmarks using our custom `DataExtractor` tool, we selected only a subset of the most relevant keypoints from the hands and face—those that carry the most meaningful information for sign interpretation. These are:
 
--   **Hand landmarks**: For each hand we extract 21 landmarks. 
-![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/hand.png)
+-   **Hand landmarks**: For each hand, we extract 21 landmarks that represent the wrist, palm center, and key points along each finger (including the finger tips and joints).
     
--   **Face landmarks**: (sali dodaj)
-![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/face.png)
-   (image- sali dodaj)
+-   **Face landmarks**: For the face, we extract 20 landmarks that outline the mouth and lips, and 36 landmarks that outline the jawline and forehead region.
 
-The final extracted features from each frame are stored as a **tensor**.These tensors are then used as input sequences for the model.
 
+The final extracted features from each frame are stored as a tensor. The tensors of each landmark type are concatenated, resulting in a shape of [frames, 98, 3], where 98 represents the total number of landmarks (21 per hand × 2 hands + 20 for the lips + 36 for the face). Each landmark contains 3 coordinates (x, y, z). These tensors are then used as input sequences for the model.
 
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/nl-gif.gif)
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/l-gif.gif)
