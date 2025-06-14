@@ -190,12 +190,35 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 
 ## Experiment 1: Encoder-Decoder Architecture with CharRNN as Decoder
 <div align ="center">
+
 | Evaluation Technique | Value         | Expected Range         |
 |------------------------|---------------|---------------|                                                         
-| **BLEU**         |   0| 	20–50 (higher is better)|
-| **METEOR**       | 0|0.4–0.7 (higher is better)	|
-| **ROUGE-1**      | 0| 0.4–0.6 (higher is better)	 | 
-| **ROUGE-2**   |0|  0.2–0.4 (higher is better)	   |
-| **ROUGE-L**   |0|0.3–0.5 (higher is better)	|
-| **WER**   |0| 20–50% (lower is better)	  |
+| **BLEU**         | 0.01168| 	20–50 (higher is better)|
+| **METEOR**       | 0.08298|0.4–0.7 (higher is better)	|
+| **ROUGE-1**      | 0.12310| 0.4–0.6 (higher is better)	 | 
+| **ROUGE-2**      | 0.01155|  0.2–0.4 (higher is better)	   |
+| **ROUGE-L**      | 0.09490| 0.3–0.5 (higher is better)	|
+| **WER**          | 0.78479| 20–50% (lower is better)	  |
 </div>
+### Human Evaluation
+
+
+## Experiment 2: Encoder-Decoder Architecture with GPT-2 as Decoder
+<div align ="center">
+
+| Evaluation Technique | Value         | Expected Range         |
+|------------------------|---------------|---------------|                                                         
+| **BLEU**         | 0.01168| 	20–50 (higher is better)|
+| **METEOR**       | 0.08298|0.4–0.7 (higher is better)	|
+| **ROUGE-1**      | 0.12310| 0.4–0.6 (higher is better)	 | 
+| **ROUGE-2**      | 0.01155|  0.2–0.4 (higher is better)	   |
+| **ROUGE-L**      | 0.09490| 0.3–0.5 (higher is better)	|
+| **WER**          | 0.78479| 20–50% (lower is better)	  |
+</div>
+
+## Human Evaluation
+hese metrics cannot be directly used to fully determine the model’s performance. Therefore, we conducted a self-evaluation, where we manually inspected several examples from the test set and analyzed the generated outputs. We observed that neither of the models perfectly matches the expected sentences (as also reflected in the metric values). Instead, both models tend to hallucinate outputs influenced by the general theme of the sign language video.
+
+For example, if a video is about swimming, the model might generate text related to the sea, beach, or vacation—capturing the broader context but not the precise intended sentence. This kind of behavior is especially common with the model from Experiment 1.
+
+On the other hand, the model from Experiment 2 produces more fluent and meaningful sentences, often with clearer sentiment, but it too tends to hallucinate in a way that aligns with the general context of the input.
