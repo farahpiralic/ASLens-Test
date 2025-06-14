@@ -200,7 +200,6 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 | **ROUGE-L**      | 0.09490| 0.3–0.5 (higher is better)	|
 | **WER**          | 0.78479| 20–50% (lower is better)	  |
 </div>
-### Human Evaluation
 
 
 ## Experiment 2: Encoder-Decoder Architecture with GPT-2 as Decoder
