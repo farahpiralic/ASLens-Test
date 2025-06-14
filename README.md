@@ -217,8 +217,8 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 </div>
 
 ## Human Evaluation
-hese metrics cannot be directly used to fully determine the model’s performance. Therefore, we conducted a self-evaluation, where we manually inspected several examples from the test set and analyzed the generated outputs. We observed that neither of the models perfectly matches the expected sentences (as also reflected in the metric values). Instead, both models tend to hallucinate outputs influenced by the general theme of the sign language video.
+These metrics cannot be directly used to fully determine the model’s performance. Therefore, we conducted a self-evaluation, where we manually inspected several examples from the test set and analyzed the generated outputs. We observed that neither of the models perfectly matches the expected sentences (as also reflected in the metric values). Instead, both models tend to hallucinate outputs influenced by the general theme of the sign language video.
 
-For example, if a video is about swimming, the model might generate text related to the sea, beach, or vacation—capturing the broader context but not the precise intended sentence. This kind of behavior is especially common with the model from Experiment 1.
+For example, if a video is about swimming, the model might generate text related to the sea, beach, or vacation—capturing the broader context but not the precise intended sentence. This kind of behavior is especially common with the model from **Experiment 1**.
 
-On the other hand, the model from Experiment 2 produces more fluent and meaningful sentences, often with clearer sentiment, but it too tends to hallucinate in a way that aligns with the general context of the input.
+On the other hand, the model from **Experiment 2** produces more fluent and meaningful sentences, often with clearer sentiment, but it too tends to hallucinate in a way that aligns with the general context of the input.
