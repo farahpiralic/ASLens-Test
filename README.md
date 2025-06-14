@@ -214,6 +214,7 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 | **ROUGE-L**      | 0.11316| 0.3–0.5 (higher is better)	|
 | **WER**          | 0.78125| 20–50% (lower is better)	  |
 </div>
+
 ### Comparison of Metrics: Experiment 1 vs. Experiment 2
 
 ![](https://github.com/ASLense/ASLens/blob/main/assets/metrics.png)
