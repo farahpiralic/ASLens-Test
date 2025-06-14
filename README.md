@@ -207,12 +207,12 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 
 | Evaluation Technique | Value         | Expected Range         |
 |------------------------|---------------|---------------|                                                         
-| **BLEU**         | 0.01168| 	20–50 (higher is better)|
-| **METEOR**       | 0.08298|0.4–0.7 (higher is better)	|
-| **ROUGE-1**      | 0.12310| 0.4–0.6 (higher is better)	 | 
-| **ROUGE-2**      | 0.01155|  0.2–0.4 (higher is better)	   |
-| **ROUGE-L**      | 0.09490| 0.3–0.5 (higher is better)	|
-| **WER**          | 0.78479| 20–50% (lower is better)	  |
+| **BLEU**         | 0.01389| 	20–50 (higher is better)|
+| **METEOR**       | 0.07141|0.4–0.7 (higher is better)	|
+| **ROUGE-1**      | 0.15781| 0.4–0.6 (higher is better)	 | 
+| **ROUGE-2**      | 0.01245|  0.2–0.4 (higher is better)	   |
+| **ROUGE-L**      | 0.11316| 0.3–0.5 (higher is better)	|
+| **WER**          | 0.78125| 20–50% (lower is better)	  |
 </div>
 
 ## Human Evaluation
