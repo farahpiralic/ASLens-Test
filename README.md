@@ -221,8 +221,12 @@ These metrics cannot be directly used to fully determine the model’s performan
 For example, if a video is about swimming, the model might generate text related to the sea, beach, or vacation—capturing the broader context but not the precise intended sentence. This kind of behavior is especially common with the model from **Experiment 1**.
 
 On the other hand, the model from **Experiment 2** produces more fluent and meaningful sentences, often with clearer sentiment, but it too tends to hallucinate in a way that aligns with the general context of the input.
-
+### Comparison of Metrics: Experiment 1 vs. Experiment 2
+![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/metrics.png)
 # Conclusion
 We can conclude that the models have learned certain patterns and context from the videos. However, due to limitations in data and computational resources, the models are not yet able to consistently produce accurate and precise transcriptions. 
 
 We will definitely continue working on this project and aim to improve our models by adding attention mechanisms to help the system learn more precise patterns and relationships in the input data. We are also considering using Reinforcement Learning from Human Feedback (RLHF), as we observed that our models tend to generate text that aligns with the general context rather than producing specific, accurate transcriptions.
+
+# Poster
+![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/poster.png)
