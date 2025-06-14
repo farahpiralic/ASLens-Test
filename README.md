@@ -214,6 +214,8 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 | **ROUGE-L**      | 0.11316| 0.3–0.5 (higher is better)	|
 | **WER**          | 0.78125| 20–50% (lower is better)	  |
 </div>
+### Comparison of Metrics: Experiment 1 vs. Experiment 2
+![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/metrics.png)
 
 ## Human Evaluation
 These metrics cannot be directly used to fully determine the model’s performance. Therefore, we conducted a self-evaluation, where we manually inspected several examples from the test set and analyzed the generated outputs. We observed that neither of the models perfectly matches the expected sentences (as also reflected in the metric values). Instead, both models tend to hallucinate outputs influenced by the general theme of the sign language video.
@@ -221,8 +223,6 @@ These metrics cannot be directly used to fully determine the model’s performan
 For example, if a video is about swimming, the model might generate text related to the sea, beach, or vacation—capturing the broader context but not the precise intended sentence. This kind of behavior is especially common with the model from **Experiment 1**.
 
 On the other hand, the model from **Experiment 2** produces more fluent and meaningful sentences, often with clearer sentiment, but it too tends to hallucinate in a way that aligns with the general context of the input.
-### Comparison of Metrics: Experiment 1 vs. Experiment 2
-![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/metrics.png)
 # Conclusion
 We can conclude that the models have learned certain patterns and context from the videos. However, due to limitations in data and computational resources, the models are not yet able to consistently produce accurate and precise transcriptions. 
 
