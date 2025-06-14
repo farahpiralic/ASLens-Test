@@ -42,8 +42,8 @@ After detecting the landmarks using our custom `DataExtractor` tool, we selected
 
 The final extracted features from each frame are stored as a tensor. The tensors of each landmark type are concatenated, resulting in a shape of [frames, 98, 3], where 98 corresponds to the combined number of landmarks. The total 98 landmarks include: 42 hand (21×2), 20 lip, and 36 facial points. Each landmark is comprised of 3 coordinates (x, y, z). These tensors are then used as input sequences for the model
 
-![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/nl-gif.gif)
-![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/l-gif.gif)
+![](https://github.com/ASLense/ASLens/blob/main/assets/nl-gif.gif)
+![](https://github.com/ASLense/ASLens/blob/main/assets/l-gif.gif)
 
 # Model Architecture
 ## Experiment 1: Encoder-Decoder Architecture with CharRNN as Decoder
@@ -215,7 +215,8 @@ We tested each of our models on the test data and find evaluation metrics. We wi
 | **WER**          | 0.78125| 20–50% (lower is better)	  |
 </div>
 ### Comparison of Metrics: Experiment 1 vs. Experiment 2
-![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/metrics.png)
+
+![](https://github.com/ASLense/ASLens/blob/main/assets/metrics.png)
 
 ## Human Evaluation
 These metrics cannot be directly used to fully determine the model’s performance. Therefore, we conducted a self-evaluation, where we manually inspected several examples from the test set and analyzed the generated outputs. We observed that neither of the models perfectly matches the expected sentences (as also reflected in the metric values). Instead, both models tend to hallucinate outputs influenced by the general theme of the sign language video.
@@ -229,4 +230,4 @@ We can conclude that the models have learned certain patterns and context from t
 We will certainly continue working on this project and aim to improve our models by adding attention mechanisms to help the system learn more precise patterns and relationships in the input data. We are also considering using Reinforcement Learning from Human Feedback (RLHF), as we observed that our models tend to generate text that aligns with the general context rather than producing specific, accurate transcriptions.
 
 # Poster
-![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/poster.png)
+![](https://github.com/ASLense/ASLens/blob/main/assets/poster.png)
