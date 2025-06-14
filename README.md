@@ -1,7 +1,7 @@
 
 # ASLens - Sign Language to Text Conversion
 
-ASLens is a deep learning project that convertes sign language gestures into text, using deep recurrent neural networks.
+ASLens is a deep learning project that converts sign language gestures into text, using deep recurrent neural networks.
 
   
 
@@ -31,16 +31,16 @@ ASLens uses the **[How2Sign ](https://how2sign.github.io/)** dataset, which cons
 
 To prepare the data for model training, we use **[MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide)** to extract key landmarks from the **hands** and **face** in each video frame. MediaPipe provides pre-trained models that detect these keypoints, which are crucial for understanding and interpreting sign language gestures.
 
-Since we worked with limited computational resources, we processed the videos at a reduced frame rate of **15 frames per second (fps)** to make the training more efficient.
+Due to limited computational resources, we processed the videos at a reduced frame rate of **15 frames per second (fps)** to make the training more efficient.
 
-After detecting the landmarks using our custom `DataExtractor` tool, we selected only a subset of the most relevant keypoints from the hands and face—those that carry the most meaningful information for sign interpretation. These are:
+After detecting the landmarks using our custom `DataExtractor` tool, we selected a subset of the most relevant hand and face keypoints—those carrying the most meaningful information for sign interpretation.  These are:
 
--   **Hand landmarks**: For each hand, we extract 21 landmarks that represent the wrist, palm center, and key points along each finger (including the finger tips and joints).
+-   **Hand landmarks**: For each hand, we extract 21 landmarks representing the wrist, palm center, and key points along each finger (including the finger tips and joints).
     
--   **Face landmarks**: For the face, we extract 20 landmarks that outline the mouth and lips, and 36 landmarks that outline the jawline and forehead region.
+-   **Face landmarks**: For the face, we extract 20 landmarks outlining  the mouth and lips, and 36 landmarks that outline the jawline and forehead region.
 
 
-The final extracted features from each frame are stored as a tensor. The tensors of each landmark type are concatenated, resulting in a shape of [frames, 98, 3], where 98 represents the total number of landmarks (21 per hand × 2 hands + 20 for the lips + 36 for the face). Each landmark contains 3 coordinates (x, y, z). These tensors are then used as input sequences for the model.
+The final extracted features from each frame are stored as a tensor. The tensors of each landmark type are concatenated, resulting in a shape of [frames, 98, 3], where 98 corresponds to the combined number of landmarks. The total 98 landmarks include: 42 hand (21×2), 20 lip, and 36 facial points. Each landmark is comprised of 3 coordinates (x, y, z). These tensors are then used as input sequences for the model
 
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/nl-gif.gif)
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/l-gif.gif)
@@ -222,11 +222,11 @@ These metrics cannot be directly used to fully determine the model’s performan
 
 For example, if a video is about swimming, the model might generate text related to the sea, beach, or vacation—capturing the broader context but not the precise intended sentence. This kind of behavior is especially common with the model from **Experiment 1**.
 
-On the other hand, the model from **Experiment 2** produces more fluent and meaningful sentences, often with clearer sentiment, but it too tends to hallucinate in a way that aligns with the general context of the input.
+On the other hand, the model from **Experiment 2** produces more fluent and meaningful sentences, often with clearer sentiment, though it too tends to hallucinate in a way that aligns with the general context of the input.
 # Conclusion
 We can conclude that the models have learned certain patterns and context from the videos. However, due to limitations in data and computational resources, the models are not yet able to consistently produce accurate and precise transcriptions. 
 
-We will definitely continue working on this project and aim to improve our models by adding attention mechanisms to help the system learn more precise patterns and relationships in the input data. We are also considering using Reinforcement Learning from Human Feedback (RLHF), as we observed that our models tend to generate text that aligns with the general context rather than producing specific, accurate transcriptions.
+We will certainly continue working on this project and aim to improve our models by adding attention mechanisms to help the system learn more precise patterns and relationships in the input data. We are also considering using Reinforcement Learning from Human Feedback (RLHF), as we observed that our models tend to generate text that aligns with the general context rather than producing specific, accurate transcriptions.
 
 # Poster
 ![](https://github.com/farahpiralic/ASLens-Test/blob/main/assets/poster.png)
